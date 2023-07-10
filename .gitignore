@@ -128,3 +128,42 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+
+
+
+# compiled output
+auth-api/dist
+auth-api/node_modules
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+
+# Tests
+auth-api/coverage
+/.nyc_output
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+auth-api/.vscode/*
+auth-api/!.vscode/settings.json
+auth-api/!.vscode/tasks.json
+auth-api/!.vscode/launch.json
+auth-api/!.vscode/extensions.json
