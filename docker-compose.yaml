@@ -1,0 +1,35 @@
+version: '3'
+services:
+
+
+  auth_api_db:
+    image: bitnami/mongodb:5.0.17
+    container_name: auth_api_db
+
+    volumes:
+      - mongodb_data:/bitnami/mongodb
+    environment:
+      MONGODB_ROOT_PASSWORD: root
+      MONGODB_REPLICA_SET_MODE: primary
+      MONGODB_REPLICA_SET_KEY: 123456
+      MONGODB_DATABASE: nest
+    ports:
+      - 27017:27017
+
+
+  auth:
+    build:
+      context: ./auth-api
+      dockerfile: Dockerfile
+    container_name: auth
+    command: .docker/start.sh
+    volumes:
+      - ./auth-api:/home/node/auth
+    ports:
+      - 3000:3000
+      - 3001:3001
+
+ 
+volumes:
+  mongodb_data:
+    driver: local
